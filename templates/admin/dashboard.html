@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 py-6 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-lg shadow p-6 max-w-7xl mx-auto">
+        <!-- Dashboard Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            <p class="mt-2 text-sm text-gray-600">Overview of system statistics and metrics</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Total Users Card -->
+            <div class="bg-indigo-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-indigo-900">Total Users</h3>
+                    <svg class="h-6 w-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <p class="mt-4 text-3xl font-bold text-indigo-900">{{ users }}</p>
+                <p class="mt-1 text-sm text-indigo-700">Registered users in system</p>
+            </div>
+
+            <!-- Total Admins Card -->
+            <div class="bg-green-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-green-900">Total Admins</h3>
+                    <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="mt-4 text-3xl font-bold text-green-900">{{ admins }}</p>
+                <p class="mt-1 text-sm text-green-700">System administrators</p>
+            </div>
+
+            <!-- Last Updated Card -->
+            <div class="bg-purple-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-purple-900">Last Updated</h3>
+                    <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="mt-4 text-3xl font-bold text-purple-900">{{ now().strftime('%H:%M') }}</p>
+                <p class="mt-1 text-sm text-purple-700">{{ now().strftime('%Y-%m-%d') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
